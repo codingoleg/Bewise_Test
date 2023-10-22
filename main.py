@@ -1,12 +1,12 @@
 import json
-
-import config
 from typing import Tuple, List
 
 import requests
-from sqlalchemy import select
-from db.db import session, Quiz
 from flask import request, Flask
+from sqlalchemy import select
+
+import config
+from db.db import session, Quiz
 
 app = Flask(__name__)
 BASE_URL = 'https://jservice.io/api/random?count='
@@ -51,4 +51,4 @@ def write_questions_to_db() -> List | Tuple:
 
 
 if __name__ == '__main__':
-    app.run(host=config.FLASK_HOST, port=config.FLASK_PORT, debug=True)
+    app.run(host=config.FLASK_HOST, port=config.FLASK_PORT)
